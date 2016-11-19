@@ -14,7 +14,7 @@
 		var hostName = window.location.host;
 		
 		var socket = io.connect(hostName);
-		
+
 		socket.on("message", function (data) {
 			console.log("socket data: " + data);
 			// console.log(typeof(data));
@@ -32,103 +32,8 @@
 					
 					$("#carDirection").removeClass("direction");
 					$("#carDirection").addClass("up");
-					
+					io.sockets.emit("message", key);
 					//********************
 					//need to fill in a method "socket.emit(param1,param2)" in line 39.
 					//The first parameter is the data type "String",the second parameter is the data "w"
-					
-				} 
-				if (event.keyCode === 83 && kflag === false){ 
-					console.log("你按下了s"); 
-					
-					$("#carDirection").removeClass("direction");
-					$("#carDirection").addClass("down");
-					
-					//********************
-					//need to fill in a method "socket.emit(param1,param2)" in line 50.
-					//The first parameter is the data type "String",the second parameter is the data "s"
-					
-				} 
-				if (event.keyCode === 65 && kflag === false){ 
-					console.log("你按下了a"); 
-					
-					$("#carDirection").removeClass("direction");
-					$("#carDirection").addClass("left");
-					
-					//********************
-					//need to fill in a method "socket.emit(param1,param2)" in line 61.
-					//The first parameter is the data type "String",the second parameter is the data "a"
-					
-				} 
-				if (event.keyCode === 68 && kflag === false){ 
-					console.log("你按下了d"); 
-					
-					$("#carDirection").removeClass("direction");
-					$("#carDirection").addClass("right");
-					
-					//********************
-					//need to fill in a method "socket.emit(param1,param2)" in line 72.
-					//The first parameter is the data type "String",the second parameter is the data "d"
-					
-				}
-				else{} 
-		} )
-		
-		$("#carDirection").keypress(function(event){
-			if( kflag ){
-				event.preventDefault();
-			}else{
-				kflag = true;
-			}
-		})
-		
-		$("#carDirection").keyup(function(event){
-			// console.log("已抬起");
-			$("#carDirection").removeClass("up");
-			$("#carDirection").removeClass("down");
-			$("#carDirection").removeClass("left");
-			$("#carDirection").removeClass("right");
-			
-			$("#carDirection").addClass("direction");
-			kflag = false;
-		})
-		});
-		
-	</script> 	
-  </head>
-  <style type="text/css">
-  	<!--
-		html{
-			background: linear-gradient(#666, #000) no-repeat;
-			height:100%;
-			}
-				#prestrain1{background: url(img/UP.png) no-repeat -9999px -9999px; position:absolute; z-index:-999; top:-9999px; left:-9999px;}
-				#prestrain2{background: url(img/DOWN.png) no-repeat -9999px -9999px; position:absolute; z-index:-999; top:-9999px; left:-9999px;}
-				#prestrain3{background: url(img/LEFT.png) no-repeat -9999px -9999px; position:absolute; z-index:-999; top:-9999px; left:-9999px;}
-				#prestrain4{background: url(img/RIGHT.png) no-repeat -9999px -9999px; position:absolute; z-index:-999; top:-9999px; left:-9999px;}
-				
-			#carDirection{
-				
-				width: 100%;
-    			height: 100%;
-				margin: 0;
-				}
-				.direction{background: url(img/direction.png) no-repeat 20% 50%;}
-				.up{background: url(img/UP.png) no-repeat 20% 50%;}
-				.down{background: url(img/DOWN.png) no-repeat 20% 50%;}
-				.left{background: url(img/LEFT.png) no-repeat 20% 50%;}
-				.right{background: url(img/RIGHT.png) no-repeat 20% 50%;}
-			#Dashboard{background: url(img/Dashboard.png) no-repeat; width:300px; height:300px; position:absolute; right:20%; top: 50%; margin-top: -150px;}
-	-->
-  </style>
-
-  <body>
-  		<div id="prestrain1"></div>
-        <div id="prestrain2"></div>
-        <div id="prestrain3"></div>
-        <div id="prestrain4"></div>
-        <div id="carDirection" class="direction"></div>
-        <!--<div id="Dashboard"></div>-->
-  </body>
-
-</html>
+                                         
