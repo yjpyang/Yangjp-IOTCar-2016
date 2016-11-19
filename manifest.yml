@@ -4,5 +4,5 @@ applications:
   instances: 1
   domain: mybluemix.net
   name: Yangjp IOTCar
-  host: yangjp IOTCar
+  host: Yangjp-IOTCar
   disk_quota: 1024M
